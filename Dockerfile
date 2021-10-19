@@ -2,7 +2,7 @@ FROM node:lts-alpine as build
 
 WORKDIR /server-build
 
-RUN ["apk", "add", "--no-cache", "python", "make", "gcc", "g++", "libc-dev", "sqlite-dev"]
+RUN ["apk", "add", "--no-cache", "python", "make", "gcc", "g++", "libc-dev", "sqlite-dev", "bash"]
 
 COPY . /server-build
 
