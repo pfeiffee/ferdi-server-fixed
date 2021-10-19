@@ -2,7 +2,7 @@ FROM node:lts-alpine as build
 
 WORKDIR /server-build
 
-RUN ["apk", "add", "--no-cache", "python", "make", "gcc", "g++", "libc-dev", "sqlite-dev", "bash"]
+RUN ["apk", "add", "--no-cache", "python", "make", "gcc", "g++", "libc-dev", "sqlite-dev"]
 
 COPY . /server-build
 
@@ -15,7 +15,7 @@ LABEL maintainer="xthursdayx"
 
 ENV HOST=0.0.0.0 PORT=3333 DATA_DIR="/data" 
 
-RUN ["apk", "add", "--no-cache", "sqlite-libs", "curl", "su-exec"]
+RUN ["apk", "add", "--no-cache", "sqlite-libs", "curl", "su-exec", "bash"]
 
 COPY --from=build /server-build /app
 RUN ["npm", "i", "-g", "@adonisjs/cli"]
