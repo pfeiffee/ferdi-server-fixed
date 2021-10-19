@@ -24,4 +24,5 @@ HEALTHCHECK --interval=5m --timeout=3s CMD curl -sSf http://localhost:${PORT}/he
 
 COPY docker/entrypoint.sh /entrypoint.sh
 COPY docker/.env /app/.env
+ENTRYPOINT []
 CMD ["/entrypoint.sh"]
